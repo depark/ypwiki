@@ -17,9 +17,10 @@ class Pro_Admin(admin.ModelAdmin):
 
 
 class Arti_Admin(admin.ModelAdmin):
-    list_display = ('title','create_user','create_time')
+    list_display = ('title','create_user','create_time','last_update_user','last_update_time')
 
 
 admin_site.register(Project,Pro_Admin)
 admin_site.register(Article,Arti_Admin)
-#admin_site.register()
+admin_site.register(User)
+admin_site.register(Group)

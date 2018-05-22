@@ -35,7 +35,7 @@ def get_path_format_vars():
 
 
 def save_upload_file(PostFile,FilePath,action):
-    print(FilePath)
+
     if not os.path.exists(FilePath):
         os.mkdir(FilePath)
 
@@ -183,6 +183,7 @@ def UploadFile(request):
     else:
         # 取得上传的文件
         file = request.FILES.get(UploadFieldName, None)
+
         if file is None:
             return HttpResponse(json.dumps(u"{'state:'ERROR'}"), content_type="application/javascript")
         upload_file_name = file.name
@@ -251,17 +252,15 @@ def UploadFile(request):
                 state = mod.upload(file, OutputPathFormat)
             else:
                 state = save_upload_file(
-                    file, os.path.join(OutputPath, OutputFile),action)
+                    file, OutputPath,action)
 
     # 返回数据
                 # 返回数据,设置上传路径视频跟图片不同
         # url = urllib.basejoin(USettings.gSettings.MEDIA_URL , OutputPathFormat)+'/'+upload_file_name
-
         if action == 'uploadvideo':
             url = os.path.join(USettings.gSettings.MEDIA_URL, OutputPathFormat)
         else:
-            url = os.path.join(USettings.gSettings.MEDIA_URL, OutputPathFormat) + '/' + upload_file_name
-
+            url = os.path.join(USettings.gSettings.MEDIA_URL,OutputPath.replace('\\','/').split('/')[-1]).replace('\\','/')+ '/' + upload_file_name
         return_info = {
             'url': url,  # 保存后的文件名称
             'original': upload_file_name,  # 原始文件名

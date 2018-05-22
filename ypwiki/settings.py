@@ -25,7 +25,7 @@ SECRET_KEY = 's@j6t(rsmtim#2ce%+5*2&n5^l$(pxxbi%#c*g5*3lc-9!t4ys'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.96']
+ALLOWED_HOSTS = ['127.0.0.1','0.0.0.0']
 
 
 # Application definition
@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'ypwiki',
         'USER':'user',
         'PASSWORD':'123456',
-        'HOST':'192.168.1.96',
+        'HOST':'192.168.10.249',
         'PORT':'3306',
     }
 }
@@ -89,6 +89,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -136,4 +137,4 @@ STATICFILES_DIRS = (
 
 
 MEDIA_URL = '/upload/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'upload')
+MEDIA_ROOT = os.path.join(BASE_DIR,'upload').replace('\\','/')
