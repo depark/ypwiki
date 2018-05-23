@@ -1,0 +1,13 @@
+
+
+
+<aside id="recent-posts-2" class="widget widget_recent_entries">
+                            <h3 class="widget-title" style="font-size: 20px;line-height: 20px">最新文章</h3>
+							<ul>
+                                {% for doc in last_docs %}
+								<li>
+									<a href="{% url 'doc' doc.id %}" style="font-size: 20px;line-height: 30px">{{ doc.title }}</a>
+								</li>
+				                {% endfor %}
+							</ul>
+						</aside>

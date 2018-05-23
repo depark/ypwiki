@@ -1,0 +1,6 @@
+
+取前15个字符串
+{%if uri|length >= 15 %}
+    {{uri|slice:"15"}}...
+{%else%} {{uri}}
+{%endif%}

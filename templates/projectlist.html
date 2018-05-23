@@ -1,0 +1,14 @@
+
+<aside id="categories-2" class="widget widget_categories">
+							<h3 class="widget-title" style="font-size: 20px;line-height: 20px">项目列表</h3>
+                            <!--项目列表-->
+
+							<ul>
+                                {% for pro in pros %}
+								<li>
+									<a href="{% url 'pro' pro.id %}" style="font-size: 20px;line-height: 30px">{{ pro.name }}</a>
+								</li>
+				                {% endfor %}
+							</ul>
+
+						</aside>

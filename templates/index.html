@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+ {% block context %}
+						<div id="content" class="site-content" role="main">
+							<article id="post-274" class="post post-274 type-post status-publish format-standard hentry category-theme">
+								<!--文章正文展示-->
+                                <div class="entry-main">
+									<header class="entry-header">
+										<h1 style="font-size: larger;padding-bottom: 20px">{{ intro.title }}</h1>
+										<div class="entry-meta"  style=" padding-left:0px;padding-right: 40px;" >
+											<span>创建时间: {{ intro.create_time }}  </span>
+                                            <span class="url fn n"   rel="author">创建人:{{ intro.create_user }}</span>
+                                            <span class="entry-categories"><strong>上次次修改时间: {{ intro.last_update_time|date:"Y-m-d H:i:s"  }}</strong>   </span>
+                                            <span  rel="category tag">修改人:{{ intro.last_update_user|date:"Y-m-d H:i:s" }}</span>
+
+
+									</header>
+									<div class="entry-content">
+                                       {{ intro.context|safe }}
+									</div>
+										</div>
+							</article>
+							<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+
+
+						</div>
+                        {% endblock %}

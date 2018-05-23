@@ -20,12 +20,15 @@ from django.conf.urls.static import static
 from ypwiki import settings
 import os
 from wiki.admin import admin_site
-
+from wiki.views import *
 
 urlpatterns = [
 
     url(r'admin/', admin_site.urls),
     url(r'^ueditor/',include('DjangoUeditor.urls')),
+    url(r'^$',index,name='index'),
+    url(r'^pro/(?P<pid>[0-9]+)',proshow,name='pro'),
+    url(r'^article/(?P<aid>[0-9]+)',artshow, name='doc')
 
 ]
 

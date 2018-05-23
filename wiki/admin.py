@@ -13,11 +13,11 @@ class MyAdminSite(admin.AdminSite):
 admin_site=MyAdminSite()
 
 class Pro_Admin(admin.ModelAdmin):
-    list_display = ('name','owner','create_time')
+    list_display = ('id','name','owner','create_time')
 
 
 class Arti_Admin(admin.ModelAdmin):
-    list_display = ('title','create_user','create_time','last_update_user','last_update_time')
+    list_display = ('id','title','create_user','create_time','last_update_user','last_update_time')
 
 
 admin_site.register(Project,Pro_Admin)
