@@ -16,7 +16,7 @@
                                             <span style="margin: 10px">修改人:{{ doc.last_update_user }}</span>
                                         </div>
 									</header>
-									<div class="entry-content" style="font-size: larger">
+									<div class="entry-content" style="font-size: larger;padding-left: 20px;">
 
                                         {%if doc.context|safe|length >= 30 %}
                                            {{doc.context|safe|slice:"30"}}.....

@@ -5,8 +5,8 @@
 
 							<ul>
                                 {% for pro in pros %}
-								<li>
-									<a href="{% url 'pro' pro.id %}" style="font-size: 20px;line-height: 30px">{{ pro.name }}</a>
+								<li style="font-size: 20px;line-height: 30px">
+                                    <a href="{% url 'pro' pro.id %}" >{{ pro.name }}</a><span>({{ pro.article_set.all.count }})</span>
 								</li>
 				                {% endfor %}
 							</ul>

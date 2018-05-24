@@ -746,7 +746,9 @@ body.vantage-layout-width-full-width-stretched #primary {
 
 #secondary {
 	float: right;
-	width: 23.762%
+	width: 23.762%;
+	border: 1px solid #c2d9e8;
+	background: white;
 }
 
 body.sidebar-position-left #secondary {
@@ -771,7 +773,7 @@ body.sidebar-position-none #secondary {
 }
 
 #main {
-	background: #fcfcfc;
+	background: #f3f7f9;
 	padding: 35px
 }
 

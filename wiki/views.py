@@ -1,6 +1,7 @@
-from django.shortcuts import render,render_to_response
+from django.shortcuts import render,render_to_response,HttpResponseRedirect,reverse
 from wiki.models import *
 from django.core.exceptions import ObjectDoesNotExist
+from wiki.api import *
 
 # Create your views here.
 
@@ -13,11 +14,16 @@ def index(request):
     #最新5篇文章
     last_docs=Article.objects.order_by('-id')[:5]
 
-    #系统介绍
-    intro=Article.objects.get(title='系统介绍')
+    # 系统介绍
+    doc = Article.objects.get(title='系统介绍')
 
-    return render_to_response('index.html',locals())
+    #上一篇和下一篇
+    bdoc,adoc = lastdoc(doc.id)
 
+
+
+    return render_to_response('docshow.html',locals())
+    #return HttpResponseRedirect(reverse(artshow,args=[intro.id]))
 
 def artshow(request,aid):
     doc= Article.objects.get(id=aid)
@@ -28,17 +34,8 @@ def artshow(request,aid):
     # 最新5篇文章
     last_docs = Article.objects.order_by('-id')[:5]
 
-    #上一篇
-    try:
-        bdoc=Article.objects.get(id=int(aid)-1)
-    except ObjectDoesNotExist as e:
-        bdoc=''
-
-    #下一篇
-    try:
-        adoc=Article.objects.get(id=int(aid)+1)
-    except ObjectDoesNotExist as e:
-        adoc=''
+    #上一篇和下一篇
+    bdoc,adoc = lastdoc(aid)
     return render_to_response('docshow.html', locals())
 
 
